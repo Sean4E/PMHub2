@@ -1,16 +1,33 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-// Use SQLite for easy setup (no separate database server needed)
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: './database.sqlite',
-  logging: process.env.NODE_ENV === 'development' ? console.log : false,
-  define: {
-    timestamps: true,
-    underscored: true
-  }
-});
+// Use PostgreSQL in production (Railway), SQLite in development
+const isProduction = process.env.NODE_ENV === 'production' || process.env.DATABASE_URL;
+
+const sequelize = isProduction
+  ? new Sequelize(process.env.DATABASE_URL, {
+      dialect: 'postgres',
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+      },
+      logging: false,
+      define: {
+        timestamps: true,
+        underscored: true
+      }
+    })
+  : new Sequelize({
+      dialect: 'sqlite',
+      storage: './database.sqlite',
+      logging: process.env.NODE_ENV === 'development' ? console.log : false,
+      define: {
+        timestamps: true,
+        underscored: true
+      }
+    });
 
 const connectDB = async () => {
   try {

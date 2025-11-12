@@ -26,7 +26,13 @@
       "Bash(server.js)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(del nul 2)"
+      "Bash(del nul 2)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(.gitignore)"
     ],
     "deny": [],
     "ask": []
