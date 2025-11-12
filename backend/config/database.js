@@ -1,11 +1,12 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-// Use PostgreSQL in production (Railway), SQLite in development
-const isProduction = process.env.NODE_ENV === 'production' || process.env.DATABASE_URL;
+// Use PostgreSQL in production (Vercel/Railway), SQLite in development
+const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+const isProduction = process.env.NODE_ENV === 'production' || databaseUrl;
 
 const sequelize = isProduction
-  ? new Sequelize(process.env.DATABASE_URL, {
+  ? new Sequelize(databaseUrl, {
       dialect: 'postgres',
       dialectOptions: {
         ssl: {

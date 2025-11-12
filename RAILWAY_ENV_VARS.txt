@@ -1,0 +1,21 @@
+# Railway Environment Variables
+# Copy these to your Railway project settings
+
+NODE_ENV=production
+PORT=3001
+FRONTEND_URL=https://sean4e.github.io/PMHub2
+
+# JWT Secret - Generate a random string (at least 32 characters)
+# You can generate one here: https://randomkeygen.com/
+JWT_SECRET=REPLACE_WITH_RANDOM_STRING_AT_LEAST_32_CHARS
+
+# Google OAuth Credentials
+# Get these from: https://console.cloud.google.com/apis/credentials
+GOOGLE_CLIENT_ID=REPLACE_WITH_YOUR_GOOGLE_CLIENT_ID
+GOOGLE_CLIENT_SECRET=REPLACE_WITH_YOUR_GOOGLE_CLIENT_SECRET
+
+# Google Redirect URI - Replace YOUR_RAILWAY_URL with your actual Railway URL
+GOOGLE_REDIRECT_URI=https://YOUR_RAILWAY_URL.railway.app/api/auth/google/callback
+
+# Database URL - This is automatically set by Railway when you add PostgreSQL
+# DATABASE_URL=automatically_set_by_railway
