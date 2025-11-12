@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-white antialiased;
+  }
+}
+
+@layer components {
+  /* Glassmorphism styles */
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/20 border border-white/10;
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/15 hover:border-white/30;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-white/5 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/20 rounded hover:bg-white/30;
+  }
+
+  /* Custom select dropdown */
+  select {
+    @apply appearance-none bg-no-repeat;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+
+  /* Custom option styling (limited support) */
+  select option {
+    @apply bg-slate-800 text-white py-2;
+  }
+
+  /* Focus states */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg font-medium transition-all shadow-lg hover:shadow-xl active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-white/5 hover:bg-white/10 text-white rounded-lg font-medium transition-all border border-white/20 hover:border-white/30;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white rounded-lg font-medium transition-all shadow-lg hover:shadow-xl active:scale-95;
+  }
+
+  /* Card styles */
+  .card {
+    @apply glass rounded-xl p-6 shadow-2xl;
+  }
+
+  .card-hover {
+    @apply glass glass-hover rounded-xl p-6 shadow-2xl cursor-pointer;
+  }
+
+  /* Modal backdrop */
+  .modal-backdrop {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in;
+  }
+
+  .modal-content {
+    @apply glass rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto animate-scale-in;
+  }
+
+  /* Status badges */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-todo {
+    @apply bg-gray-500/20 text-gray-300 border border-gray-500/30;
+  }
+
+  .badge-in-progress {
+    @apply bg-blue-500/20 text-blue-300 border border-blue-500/30;
+  }
+
+  .badge-review {
+    @apply bg-yellow-500/20 text-yellow-300 border border-yellow-500/30;
+  }
+
+  .badge-done {
+    @apply bg-green-500/20 text-green-300 border border-green-500/30;
+  }
+
+  /* Priority badges */
+  .badge-low {
+    @apply bg-blue-500/20 text-blue-300 border border-blue-500/30;
+  }
+
+  .badge-medium {
+    @apply bg-yellow-500/20 text-yellow-300 border border-yellow-500/30;
+  }
+
+  .badge-high {
+    @apply bg-orange-500/20 text-orange-300 border border-orange-500/30;
+  }
+
+  .badge-critical {
+    @apply bg-red-500/20 text-red-300 border border-red-500/30;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus-ring transition-all;
+  }
+
+  .textarea {
+    @apply w-full px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus-ring transition-all resize-none;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-white/20 border-t-white;
+  }
+}
